@@ -689,21 +689,20 @@ ul {
 .img--profile {
   border-radius: 50%; }
 
-.cards {
-  position: relative;
-  transition: transform 1s cubic-bezier(0.55, -0.62, 0.27, 1.2);
-  transform-style: preserve-3d; }
-  .cards:hover {
-    transform: rotate3d(0, 1, 0, 180deg); }
-
 .card {
   position: relative;
-  border: 2px solid gray;
-  border-radius: 0.4em;
-  padding: 1.25em;
   width: 100%;
   margin: 1.25em;
   text-transform: capitalize; }
+  .card p {
+    margin: 0; }
+  .card--group {
+    position: relative;
+    transition: transform 1s cubic-bezier(0.55, -0.62, 0.27, 1.2);
+    transform-style: preserve-3d;
+    margin-bottom: 2.8125em; }
+    .card--group:hover {
+      transform: rotate3d(0, 1, 0, 180deg); }
   .card--details {
     transform: rotateY(180deg);
     position: absolute;
@@ -713,6 +712,13 @@ ul {
     left: 0; }
 
 .card, .card--details {
-  backface-visibility: hidden; }
+  height: 15.625em;
+  border: 2px solid gray;
+  border-radius: 0.4em;
+  padding: 1.25em;
+  backface-visibility: hidden;
+  -webkit-box-shadow: 11px 10px 25px -4px rgba(0, 0, 0, 0.63);
+  -moz-box-shadow: 11px 10px 25px -4px rgba(0, 0, 0, 0.63);
+  box-shadow: 11px 10px 25px -4px rgba(0, 0, 0, 0.63); }
 
 /*# sourceMappingURL=styles.css.map */

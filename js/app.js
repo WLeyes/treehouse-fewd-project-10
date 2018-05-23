@@ -69,14 +69,16 @@ const UICtrl = ( () => {
         `;
 
         let output = document.createElement('div');
+        output.className = 'card--group';
         output.innerHTML = employee;
 
         document.querySelector('.cards').appendChild(output);
-
       }
+    },
+    overlay: () => {
 
     },
-
+    
     getSelectors: () => UISelectors
   }
 })();
@@ -90,14 +92,14 @@ const App = ( (UICtrl, DataCtrl) => {
   const UISelectors = UICtrl.getSelectors();
   
   const loadEventListeners = () => {
-    // document.querySelector(UISelectors.lineChartHourly).addEventListener("click", ChartCtrl.hourly);
+
   }
 
   return {
     init: () => {
       console.log('Initializing App ...');
       DataCtrl.getRandomUser();
-      // loadEventListeners();
+      loadEventListeners();
     }
   }
 })(UICtrl, DataCtrl);

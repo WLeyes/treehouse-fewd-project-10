@@ -1,30 +1,39 @@
-.cards{
-  position: relative;
-  transition: transform 1s cubic-bezier(.55, -.62, .27, 1.2);
-  transform-style: preserve-3d;
-  &:hover{ // move to js
-  transform: rotate3d(0,1,0, 180deg);
-  }
-}
-
 .card{
+  p{
+    margin: 0;
+  }
   position: relative;
-  border: 2px solid gray;
-  border-radius: $border-radius--default;
-  padding: em(20px);
   width: 100%;
   margin: em(20px);
   text-transform: capitalize;
+  
+  @include m(group){
+    
+    position: relative;
+    transition: transform 1s cubic-bezier(.55, -.62, .27, 1.2);
+    transform-style: preserve-3d;
+    &:hover{
+      transform: rotate3d(0,1,0, 180deg);
+      }
+      margin-bottom: em(45px);
+  }
   @include m(details){
     transform: rotateY(180deg);
     position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0; 
-	left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0; 
+    left: 0;
   }
 }
 
 .card, .card--details{
+  height: em(250px);
+  border: 2px solid gray;
+  border-radius: $border-radius--default;
+  padding: em(20px);
   backface-visibility: hidden;
+  -webkit-box-shadow: 11px 10px 25px -4px rgba(0,0,0,0.63);
+  -moz-box-shadow: 11px 10px 25px -4px rgba(0,0,0,0.63);
+  box-shadow: 11px 10px 25px -4px rgba(0,0,0,0.63);
 }

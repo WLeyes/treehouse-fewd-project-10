@@ -10,15 +10,6 @@
   @include bg-colors($grid-colors,'%buttons', $selector--element);
 }
 
-
-// Grid style
-[class^='grid__col--'] {
-  // margin-left: $gutter;
-  // margin-right: $gutter;
-  // @include flex(column);
-}
-
-
 .container {
   perspective: em(700px);
   @extend %clearfix;
