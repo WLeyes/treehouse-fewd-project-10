@@ -60,7 +60,6 @@ const UICtrl = ( () => {
             <img src="${image}" alt="${firstName} ${lastName}'s profile picture" class="img--profile"></img>
             <p>${firstName} ${lastName}</p>
             <a href="mailto:${email}" class="link">${email}</a>
-            <p>${city}</p>
             <p>${cell}</p>
             <p>${street} ${city}, ${state} ${postal}</p>
             <p>Birthday: ${birthday}</p>
