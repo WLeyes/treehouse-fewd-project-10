@@ -9,7 +9,7 @@
   display: table;
   clear: both; }
 
-.container, [class^='img--'] {
+.container {
   margin-left: auto;
   margin-right: auto; }
 
@@ -49,10 +49,6 @@
     opacity: .75; }
   .theme__colors.grid__col--3:active, .theme__colors.grid__col--4:active, .theme__colors.grid__col--5:active, .theme__colors.grid__col--6:active, .theme__colors.grid__col--7:active, .theme__colors.grid__col--8:active, .theme__colors.grid__col--12:active, .theme__colors.btn--default:active, .theme__colors.btn--success:active, .theme__colors.btn--error:active, .theme__colors.btn--warning:active, .theme__colors.btn--info:active {
     opacity: initial; }
-
-.img--profile {
-  display: block;
-  max-width: 100%; }
 
 /*
 ////////////////////////////////////////////////////////////////////////////////
@@ -494,13 +490,23 @@ ul {
 
 .cards {
   display: grid;
-  grid-template-columns: 1fr; }
+  grid-gap: 1.875em;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr; }
   @media (min-width: 768px) {
     .cards {
-      grid-template-columns: 1fr 1fr; } }
+      grid-template-columns: repeat(2, 1fr); } }
   @media (min-width: 1100px) {
     .cards {
-      grid-template-columns: 1fr 1fr 1fr; } }
+      grid-template-columns: repeat(3, 1fr); } }
+
+.card, .card--details {
+  display: grid;
+  grid-gap: 0.625em;
+  grid-template-columns: 72px 1fr; }
+  .card p, .card--details p {
+    grid-column-start: 1;
+    grid-column-end: 3; }
 
 /*
 ////////////////////////////////////////////////////////////////////////////////
@@ -538,6 +544,8 @@ ul {
   color: #55def8;
   font-weight: 700; }
 
+.card h3 {
+  margin: 0; }
 @media (min-width: 768px) {
   .card {
     margin-top: 0; } }
@@ -585,45 +593,72 @@ ul {
 // scss/components/_images.scss :  Image styling
 ////////////////////////////////////////////////////////////////////////////////
 */
-[class^='img--'] {
-  margin-bottom: 1.6875em; }
-
 .img--profile {
   border-radius: 50%; }
 
-.card {
-  position: relative; }
-  .card p {
-    margin: 0;
-    text-transform: capitalize; }
-  .card--group {
-    width: 90%;
-    margin: 0;
-    position: relative;
-    transition: transform 1s cubic-bezier(0.55, -0.62, 0.27, 1.2);
-    transform-style: preserve-3d;
-    margin-bottom: 2.8125em; }
-    .card--group:hover {
-      transform: rotate3d(0, 1, 0, 180deg); }
-  .card--details {
-    cursor: pointer;
-    transform: rotateY(180deg);
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0; }
+.card a {
+  font-size: 0.875em; }
+.card p {
+  font-size: 0.75em;
+  margin: 0;
+  padding: 0;
+  text-transform: capitalize; }
+.card--group {
+  margin: auto 0;
+  transition: transform 1s cubic-bezier(0.55, -0.62, 0.27, 1.2);
+  transform-style: preserve-3d; }
+  .card--group:hover {
+    transform: rotate3d(0, 1, 0, 180deg); }
+.card--details {
+  cursor: pointer;
+  transform: rotateY(180deg);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; }
 
 .card, .card--details {
-  height: 15.625em;
+  height: 12.5em;
   padding: 1.25em;
   backface-visibility: hidden; }
   @media (min-width: 768px) {
     .card, .card--details {
+      justify-items: center;
       border: 2px solid gray;
       border-radius: 0.4em;
       -webkit-box-shadow: 11px 10px 25px -4px rgba(0, 0, 0, 0.63);
       -moz-box-shadow: 11px 10px 25px -4px rgba(0, 0, 0, 0.63);
       box-shadow: 11px 10px 25px -4px rgba(0, 0, 0, 0.63); } }
+
+.modal {
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  display: none;
+  z-index: 100;
+  position: fixed;
+  background: rgba(11, 11, 11, 0.7);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+  .modal--contents {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    width: 320px;
+    height: 400px;
+    text-align: center;
+    border: 2px solid gray;
+    border-radius: 0.4em; }
+    .modal--contents p, .modal--contents h3 {
+      text-transform: capitalize; }
+    .modal--contents img {
+      margin-top: 50px;
+      width: 100px; }
 
 /*# sourceMappingURL=styles.css.map */

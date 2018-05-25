@@ -53,13 +53,18 @@ const UICtrl = ( () => {
         let employee   = `
         <div class="card">
           <img src="${image}" alt="${firstName} ${lastName}'s profile picture" class="img--profile"></img>
-          <p>${firstName} ${lastName}</p>
-          <a href="mailto:${email}" class="link">${email}</a>
-          <p>${city}</p>
+          <div>
+            <h3>${firstName} ${lastName}</h3>
+            <a href="mailto:${email}" class="link">${email}</a>
+            <p>${city}</p>
+          </div>
+          
           <div class="card--details">
             <img src="${image}" alt="${firstName} ${lastName}'s profile picture" class="img--profile"></img>
-            <p>${firstName} ${lastName}</p>
-            <a href="mailto:${email}" class="link">${email}</a>
+            <div>
+              <h3>${firstName} ${lastName}</h3>
+              <a href="mailto:${email}" class="link">${email}</a>
+            </div>
             <p>${cell}</p>
             <p>${street} ${city}, ${state} ${postal}</p>
             <p>Birthday: ${birthday}</p>
@@ -73,9 +78,18 @@ const UICtrl = ( () => {
 
         document.querySelector('.cards').appendChild(output);
       }
-    },
-    overlay: () => {
-
+      let detailsListener = document.getElementsByClassName('card--details');
+      for(let i=0;i<detailsListener.length;i++){
+        detailsListener[i].addEventListener('click', () => {
+          let container = document.querySelector('.modal');
+          let output = document.querySelector('.modal--contents');
+          container.style.display = 'block';
+          let cards = document.querySelectorAll('.card--group');
+          
+            output.innerHTML = cards[i].childNodes[1].childNodes[5].innerHTML;
+          
+        })
+      }
     },
     
     getSelectors: () => UISelectors

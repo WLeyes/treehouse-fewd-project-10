@@ -1,0 +1,35 @@
+.modal{
+  font-family: $font-family--primary;
+  font-weight: $font-weight--medium;
+  display: none;
+  z-index: 100;
+  position: fixed;
+  background: $color--shadow;
+  width: 100%;
+  height: 100%;
+  top: 0; 
+  left: 0;
+  right: 0;
+  bottom: 0;
+  @include m(contents){
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: white;
+    width: 320px;
+    height: 400px;
+    text-align: center;
+    
+    border: 2px solid gray;
+    border-radius: $border-radius--default;
+    p, h3{
+      text-transform: capitalize;
+    }
+  img{
+    margin-top: 50px;
+    width: 100px;
+  }    
+  }
+  
+}

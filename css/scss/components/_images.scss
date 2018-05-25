@@ -4,13 +4,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 */
 
-[class^='img--'] {
-  @extend %centered;
-  margin-bottom: em(27px);
-}
 .img {
   @include m(profile) {
-    @extend %image;
     border-radius: $border-radius--round;
   }
 }

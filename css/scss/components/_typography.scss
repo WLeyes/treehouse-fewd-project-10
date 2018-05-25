@@ -54,6 +54,9 @@
 }
 
 .card {
+  h3{
+    margin: 0;
+  }
   @include media-query(medium) {
     margin-top: 0;
   }

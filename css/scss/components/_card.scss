@@ -1,19 +1,20 @@
 
 
 .card{
-  position: relative;
+  a{
+    font-size: em(14px);
+  }
   p{
+    font-size: em(12px);
     margin: 0;
+    padding: 0;
     text-transform: capitalize;
   }
   
   @include m(group){
-    width: 90%;
-    margin: 0;
-    position: relative;
+    margin: auto 0;
     transition: transform 1s cubic-bezier(.55, -.62, .27, 1.2);
     transform-style: preserve-3d;
-    margin-bottom: em(45px);
     &:hover{
       transform: rotate3d(0,1,0, 180deg);
       }
@@ -31,10 +32,11 @@
 }
 
 .card, .card--details{
-  height: em(250px);
+  height: em(200px);
   padding: em(20px);
   backface-visibility: hidden;
   @include media-query(medium){
+    justify-items: center;
     border: 2px solid gray;
     border-radius: $border-radius--default;
     -webkit-box-shadow: 11px 10px 25px -4px rgba(0,0,0,0.63);

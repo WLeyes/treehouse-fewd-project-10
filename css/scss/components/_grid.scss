@@ -25,11 +25,23 @@
 
 .cards{
   display: grid;
+  grid-gap: em(30px);
   grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
   @include media-query(medium){
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2,1fr);
   }
   @include media-query(large){
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3,1fr);
   }
+ }
+
+ .card, .card--details{
+   display: grid;
+   grid-gap: em(10px);
+   grid-template-columns: 72px 1fr;
+   p{
+     grid-column-start: 1;
+     grid-column-end: 3;
+   }
  }
