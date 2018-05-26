@@ -36,6 +36,7 @@
   padding: em(20px);
   backface-visibility: hidden;
   @include media-query(medium){
+    justify-items: center;
     border: 2px solid gray;
     border-radius: $border-radius--default;
     -webkit-box-shadow: 11px 10px 25px -4px rgba(0,0,0,0.63);
