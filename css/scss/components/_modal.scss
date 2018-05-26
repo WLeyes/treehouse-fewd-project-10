@@ -27,6 +27,7 @@
       text-transform: capitalize;
       margin: 0;
       padding: 5px;
+      color: $silver-chalace;
     }
     hr{
       width: 80%;
@@ -51,15 +52,17 @@
 .fa-angle-double-right{
   z-index: 101;
   position: absolute;
-  font-size: 30px;
+  font-size: 60px;
   bottom: 0;
   right: 0;
+  color: $color--accent;
 }
 
 .fa-angle-double-left{
   z-index: 101;
   position: absolute;
-  font-size: 30px;
+  font-size: 60px;
   bottom: 0;
   left: 0;
+  color: $color--accent;
 }
