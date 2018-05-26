@@ -4664,6 +4664,8 @@ i {
       @media (min-width: 768px) {
         .modal--contents p, .modal--contents h3 {
           font-size: 16px; } }
+    .modal--contents a {
+      font-size: 20px; }
     .modal--contents hr {
       width: 80%; }
     .modal--contents img {
