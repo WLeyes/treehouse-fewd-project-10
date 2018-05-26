@@ -86,7 +86,7 @@ const UICtrl = ( () => {
         document.querySelector('.cards').appendChild(output);
       }
       
-      let detailsListener = document.getElementsByClassName('card--details');
+      let detailsListener = document.getElementsByClassName('card');
       for(let i=0;i<detailsListener.length;i++){
         detailsListener[i].addEventListener('click', () => {
           UICtrl.modal(i);
