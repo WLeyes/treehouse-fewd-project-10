@@ -43,7 +43,7 @@ const UICtrl = ( () => {
         birthday = birthday.toLocaleDateString();
         let email      = data.results[i].email;
         let cell       = data.results[i].cell;
-
+        let username   = data.results[i].login.username;
         let street     = data.results[i].location.street;
         let city       = data.results[i].location.city;
         let state      = data.results[i].location.state;
@@ -61,6 +61,7 @@ const UICtrl = ( () => {
             <h3>${firstName} ${lastName}</h3>
             <a href="mailto:${email}" class="link">${email}</a>
             <p>${city}</p>
+            <input type="hidden" value="${username}">
           </div>
           
           <div class="card--details">
@@ -162,15 +163,16 @@ const UICtrl = ( () => {
 
     autocomplete: (data) => {
       let array= [];
-      for(let i = 1; i < data.results.length; i++){
+      for(let i = 0; i < data.results.length; i++){
         let firstName = data.results[i].name.first;
         let lastName  = data.results[i].name.last;
         let image     = data.results[i].picture.medium;
         let email     = data.results[i].email;
-        let username  = `${firstName} ${lastName}`;
+        let username  = data.results[i].login.username;
+        let fullname  = `${firstName} ${lastName}`;
         let datalist  = document.querySelector('#searchList');
         let option    = document.createElement('option');
-        option.value  = username;
+        option.value  = fullname;
         datalist.appendChild(option);
       }  
      },
@@ -181,9 +183,11 @@ const UICtrl = ( () => {
        let cardGroup = document.querySelectorAll('.card--group');
        let card = document.querySelectorAll('.card');
        inputValue = input.value.toLowerCase();
-       console.log(card[0].children[1].childNodes[1].innerHTML);
+       console.log(card);
        for(let i = 0; i < cardGroup.length; i++){
-         if(card[i].children[1].childNodes[1].innerHTML.indexOf(inputValue) > -1){
+         if( card[i].children[1].childNodes[1].innerHTML.indexOf(inputValue) > -1 // By Name
+          || card[i].children[1].childNodes[3].innerHTML.indexOf(inputValue) > -1 // By email
+          || card[i].children[1].childNodes[7].value.indexOf(inputValue) > -1){   // By username
            cardGroup[i].style.display = '';
          } else {
           cardGroup[i].style.display = 'none';
