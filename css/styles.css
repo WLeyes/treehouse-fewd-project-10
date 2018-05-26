@@ -4447,10 +4447,18 @@ readers do not read off random characters that represent icons */
 
 .header {
   display: grid; }
+  .header div {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
+  @media (min-width: 768px) {
+    .header div {
+      width: 25%;
+      margin-left: 0; } }
 
 .cards {
   display: grid;
-  grid-gap: 1.875em;
+  grid-gap: 0.9375em;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr; }
   @media (min-width: 768px) {
@@ -4462,10 +4470,14 @@ readers do not read off random characters that represent icons */
 
 .card, .card--details {
   display: grid;
-  grid-template-columns: 100px 1fr; }
+  padding: 0 auto;
+  grid-template-columns: 77px 1fr; }
   .card p, .card--details p {
     grid-column-start: 1;
     grid-column-end: 3; }
+  @media (min-width: 768px) {
+    .card, .card--details {
+      grid-template-columns: 100px 1fr; } }
 
 i {
   cursor: pointer; }
@@ -4580,10 +4592,16 @@ i {
 
 .card a {
   font-size: 0.875em; }
+  @media (min-width: 768px) {
+    .card a {
+      font-size: 1em; } }
 .card p, .card h3 {
-  font-size: 0.75em;
-  margin: 5px;
+  font-size: 0.875em;
+  margin: 0;
   text-transform: capitalize; }
+  @media (min-width: 768px) {
+    .card p, .card h3 {
+      font-size: 1em; } }
 .card--group {
   margin: auto 0;
   transition: transform 1s cubic-bezier(0.55, -0.62, 0.27, 1.2);
@@ -4602,8 +4620,8 @@ i {
 .card, .card--details {
   align-items: center;
   height: 12.5em;
-  padding: 1.25em;
-  backface-visibility: hidden; }
+  backface-visibility: hidden;
+  border-bottom: 2px solid gray; }
   @media (min-width: 768px) {
     .card, .card--details {
       justify-items: center;
@@ -4641,12 +4659,19 @@ i {
       text-transform: capitalize;
       margin: 0;
       padding: 5px;
-      color: #a2a2a2; }
+      color: #a2a2a2;
+      font-size: 14px; }
+      @media (min-width: 768px) {
+        .modal--contents p, .modal--contents h3 {
+          font-size: 16px; } }
     .modal--contents hr {
       width: 80%; }
     .modal--contents img {
       margin-top: 50px;
       width: 128px; }
+    @media (min-width: 768px) {
+      .modal--contents {
+        width: 450px; } }
 
 .fa-times-circle {
   z-index: 101;
@@ -4662,7 +4687,7 @@ i {
   position: absolute;
   font-size: 60px;
   bottom: 0;
-  right: 0;
+  right: 10px;
   color: #63cc82; }
 
 .fa-angle-double-left {
@@ -4670,7 +4695,7 @@ i {
   position: absolute;
   font-size: 60px;
   bottom: 0;
-  left: 0;
+  left: 10px;
   color: #63cc82; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -24,15 +24,22 @@
 }
 .header{
   display: grid;
-  
-  @include media-query(large){
-    
+  div{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @include media-query(medium){
+    div{
+      width: 25%;
+      margin-left: 0;
+    }
   }
 }
 
 .cards{
   display: grid;
-  grid-gap: em(30px);
+  grid-gap: em(15px);
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   @include media-query(medium){
@@ -44,12 +51,15 @@
  }
 
  .card, .card--details{
-   display: grid;
-
-   grid-template-columns: 100px 1fr;
+  display: grid;
+  padding: 0 auto;
+  grid-template-columns: 77px 1fr;
    p{
      grid-column-start: 1;
      grid-column-end: 3;
+   }
+   @include media-query(medium){
+      grid-template-columns: 100px 1fr;
    }
  }
 

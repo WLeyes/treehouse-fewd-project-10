@@ -28,6 +28,10 @@
       margin: 0;
       padding: 5px;
       color: $silver-chalace;
+      font-size: 14px;
+      @include media-query(medium){
+        font-size: 16px;
+      }
     }
     hr{
       width: 80%;
@@ -35,8 +39,12 @@
     img{
       margin-top: 50px;
       width: 128px;
-    }   
+    }
+    @include media-query(medium){
+      width: 450px;
+    } 
   }
+  
 }
 
 .fa-times-circle{
@@ -54,7 +62,7 @@
   position: absolute;
   font-size: 60px;
   bottom: 0;
-  right: 0;
+  right: 10px;
   color: $color--accent;
 }
 
@@ -63,6 +71,6 @@
   position: absolute;
   font-size: 60px;
   bottom: 0;
-  left: 0;
+  left: 10px;
   color: $color--accent;
 }
