@@ -192,6 +192,10 @@ const UICtrl = ( () => {
          } else {
           cardGroup[i].style.display = 'none';
          }
+         input.addEventListener('blur', (e) => {
+          input.value = '';
+          setInterval( () => cardGroup[i].style.display = '',1000); //allow time for selection before all cards display 
+        });
        }
      },
 
