@@ -4477,9 +4477,18 @@ i {
   font-size: 1.125em;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400; }
-  @media (min-width: 1100px) {
+  .container h1 {
+    font-size: 1.5em;
+    text-align: center; }
+  @media (min-width: 768px) {
     .container {
-      font-size: 1.125em; } }
+      font-size: 1.125em; }
+      .container h1 {
+        font-size: 2em;
+        text-align: left; } }
+  @media (min-width: 1100px) {
+    .container h1 {
+      font-size: 2.5em; } }
 
 .grid__row {
   margin-top: 1.25em; }

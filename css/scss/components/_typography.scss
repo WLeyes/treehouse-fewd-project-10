@@ -11,8 +11,21 @@
   font-size: em(18px);
   font-family: $font-family--primary;
   font-weight: $font-weight--medium;
-  @include media-query(large) {
+  h1{
+    font-size: 1.5em;
+    text-align: center;
+  }
+  @include media-query(medium) {
     font-size: em(18px);
+    h1{
+      font-size: 2em;
+      text-align: left;
+    }
+  }
+  @include media-query(large) {
+    h1{
+      font-size: 2.5em;
+    }
   }
 }
 
