@@ -38,10 +38,14 @@
 
  .card, .card--details{
    display: grid;
-   grid-gap: em(10px);
-   grid-template-columns: 72px 1fr;
+  //  grid-gap: em(10px);
+   grid-template-columns: 100px 1fr;
    p{
      grid-column-start: 1;
      grid-column-end: 3;
    }
  }
+
+ i{
+  cursor: pointer;
+}

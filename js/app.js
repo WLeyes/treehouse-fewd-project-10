@@ -32,11 +32,12 @@ const UICtrl = ( () => {
       console.log(data);
 
       for(let i = 0; i < data.results.length; i++){
-        let image      = data.results[i].picture.medium;
+        let image      = data.results[i].picture.large;
         
         let firstName  = data.results[i].name.first;
         let lastName   = data.results[i].name.last;
-        let birthday   = data.results[i].dob;
+        let birthday   = new Date(data.results[i].dob);
+        birthday = birthday.toLocaleDateString();
         let email      = data.results[i].email;
         let cell       = data.results[i].cell;
 
@@ -49,7 +50,7 @@ const UICtrl = ( () => {
         let previous;
         let close;
         let currentEmployee;
-        
+        let formattedBirthday = new Date(birthday);
         let employee   = `
         <div class="card">
           <img src="${image}" alt="${firstName} ${lastName}'s profile picture" class="img--profile"></img>
@@ -64,7 +65,9 @@ const UICtrl = ( () => {
             <div>
               <h3>${firstName} ${lastName}</h3>
               <a href="mailto:${email}" class="link">${email}</a>
+              <p>${city}</p>
             </div>
+            <hr>
             <p>${cell}</p>
             <p>${street} ${city}, ${state} ${postal}</p>
             <p>Birthday: ${birthday}</p>
@@ -78,20 +81,82 @@ const UICtrl = ( () => {
 
         document.querySelector('.cards').appendChild(output);
       }
+      
       let detailsListener = document.getElementsByClassName('card--details');
       for(let i=0;i<detailsListener.length;i++){
         detailsListener[i].addEventListener('click', () => {
-          let container = document.querySelector('.modal');
-          let output = document.querySelector('.modal--contents');
-          container.style.display = 'block';
-          let cards = document.querySelectorAll('.card--group');
-          
-            output.innerHTML = cards[i].childNodes[1].childNodes[5].innerHTML;
-          
-        })
+          UICtrl.modal(i);
+        });
       }
     },
+
+    modal: (i) =>{
+        let container = document.querySelector('.modal');
+        let output = document.querySelector('.modal--contents');
+        container.style.display = 'block';
+        let cards = document.querySelectorAll('.card--group');
+
+        let closeBtn       = `<i class="far fa-times-circle"></i>`
+        let nextRecord     = `<i class="fas fa-angle-double-right"></i>`;
+        let previousRecord = `<i class="fas fa-angle-double-left"></i>`;
+        output.innerHTML   = cards[i].childNodes[1].childNodes[5].innerHTML;
+        output.innerHTML   += closeBtn;
+        output.innerHTML   += previousRecord;
+        output.innerHTML   += nextRecord;
+
+      document.querySelector('.fa-times-circle').addEventListener('click', () =>{
+        container.style.display = 'none';
+      });
+
+      document.querySelector('.fa-angle-double-right').addEventListener('click', () =>{
+          UICtrl.nextRecord(i);
+      });
+
+      document.querySelector('.fa-angle-double-left').addEventListener('click', () =>{
+        UICtrl.previousRecord(i);
+      });
+      
+    },
+
+    nextRecord: (i) => {
+      i++;
+      if(i > document.querySelectorAll('.card--group').length - 1){
+        i = 0;
+      }
+      console.log(i);
+
+      let output = document.querySelector('.modal--contents');
+      let cards = document.querySelectorAll('.card--group');
+      let detailsListener = document.getElementsByClassName('card--details');
+      let closeBtn       = `<i class="far fa-times-circle"></i>`
+      let nextRecord     = `<i class="fas fa-angle-double-right"></i>`;
+      let previousRecord = `<i class="fas fa-angle-double-left"></i>`;  
+        output.innerHTML   = cards[i].childNodes[1].childNodes[5].innerHTML;
+        output.innerHTML   += closeBtn;
+        output.innerHTML   += previousRecord;
+        output.innerHTML   += nextRecord;
+        UICtrl.modal(i);
+    },
     
+    previousRecord: (i) => {
+      i--;
+      console.log(i);
+      if(i < 0){
+        i = document.querySelectorAll('.card--group').length - 1;
+      }
+      let output = document.querySelector('.modal--contents');
+      let cards = document.querySelectorAll('.card--group');
+      let detailsListener = document.getElementsByClassName('card--details');
+      let closeBtn       = `<i class="far fa-times-circle"></i>`
+      let nextRecord     = `<i class="fas fa-angle-double-right"></i>`;
+      let previousRecord = `<i class="fas fa-angle-double-left"></i>`;  
+        output.innerHTML   = cards[i].childNodes[1].childNodes[5].innerHTML;
+        output.innerHTML   += closeBtn;
+        output.innerHTML   += previousRecord;
+        output.innerHTML   += nextRecord;
+        UICtrl.modal(i);
+    },
+
     getSelectors: () => UISelectors
   }
 })();

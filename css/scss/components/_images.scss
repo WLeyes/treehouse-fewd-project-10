@@ -6,6 +6,7 @@
 
 .img {
   @include m(profile) {
+    width: 72px;
     border-radius: $border-radius--round;
   }
 }

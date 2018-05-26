@@ -4,10 +4,9 @@
   a{
     font-size: em(14px);
   }
-  p{
+  p, h3{
     font-size: em(12px);
-    margin: 0;
-    padding: 0;
+    margin: 5px;
     text-transform: capitalize;
   }
   
@@ -32,6 +31,7 @@
 }
 
 .card, .card--details{
+  align-items: center;
   height: em(200px);
   padding: em(20px);
   backface-visibility: hidden;
