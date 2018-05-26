@@ -4458,7 +4458,7 @@ readers do not read off random characters that represent icons */
 
 .cards {
   display: grid;
-  grid-gap: 0.9375em;
+  grid-gap: 1.875em;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr; }
   @media (min-width: 768px) {
