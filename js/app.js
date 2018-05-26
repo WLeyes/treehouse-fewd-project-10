@@ -194,7 +194,11 @@ const UICtrl = ( () => {
          }
          input.addEventListener('blur', (e) => {
           input.value = '';
-          setInterval( () => cardGroup[i].style.display = '',1000); //allow time for selection before all cards display 
+          if(input.value === ''){
+            setTimeout( () => cardGroup[i].style.display = '',1000); //allow time for selection before all cards display 
+          } else {
+            cardGroup[i].style.display = 'none';
+          }
         });
        }
      },
