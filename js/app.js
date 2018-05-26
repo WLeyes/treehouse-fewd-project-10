@@ -5,7 +5,10 @@ const DataCtrl = ( () => {
   function fetchUserJSON(url,numberOfUsers){  
     fetch(`${url}?seed=b73e4d2e35f01cdc&nat=us&results=${parseInt(numberOfUsers)}`)
       .then(response => response.json())
-      .then(data => UICtrl.card(data))
+      .then(data => {
+        UICtrl.card(data);
+        UICtrl.autocomplete(data);
+      })
       .catch(error => console.log(error));
   }
 
@@ -157,6 +160,37 @@ const UICtrl = ( () => {
         UICtrl.modal(i);
     },
 
+    autocomplete: (data) => {
+      let array= [];
+      for(let i = 1; i < data.results.length; i++){
+        let firstName = data.results[i].name.first;
+        let lastName  = data.results[i].name.last;
+        let image     = data.results[i].picture.medium;
+        let email     = data.results[i].email;
+        let username  = `${firstName} ${lastName}`;
+        let datalist  = document.querySelector('#searchList');
+        let option    = document.createElement('option');
+        option.value  = username;
+        datalist.appendChild(option);
+      }  
+     },
+
+     filter: (input) => {
+       console.log(input);
+       input = document.querySelector('.search');
+       let cardGroup = document.querySelectorAll('.card--group');
+       let card = document.querySelectorAll('.card');
+       inputValue = input.value.toLowerCase();
+       console.log(card[0].children[1].childNodes[1].innerHTML);
+       for(let i = 0; i < cardGroup.length; i++){
+         if(card[i].children[1].childNodes[1].innerHTML.indexOf(inputValue) > -1){
+           cardGroup[i].style.display = '';
+         } else {
+          cardGroup[i].style.display = 'none';
+         }
+       }
+     },
+
     getSelectors: () => UISelectors
   }
 })();
@@ -170,7 +204,9 @@ const App = ( (UICtrl, DataCtrl) => {
   const UISelectors = UICtrl.getSelectors();
   
   const loadEventListeners = () => {
-
+    document.querySelector('.search').addEventListener('keyup', e => {
+      UICtrl.filter(e);
+    });
   }
 
   return {

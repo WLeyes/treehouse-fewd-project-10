@@ -15,11 +15,23 @@
     font-size: 1.5em;
     text-align: center;
   }
+  .search{
+    outline: none;
+    border: 2px solid gray;
+    border-radius: $border-radius--default;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  .fa-searchengin{
+    cursor: initial;
+    margin: -45px;
+  }
   @include media-query(medium) {
     font-size: em(18px);
     h1{
       font-size: 2em;
       text-align: left;
+      margin-bottom: 5px;
     }
   }
   @include media-query(large) {
