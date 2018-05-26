@@ -4596,10 +4596,10 @@ i {
     .card a {
       font-size: 1em; } }
 .card p, .card h3 {
-  font-size: 0.875em;
+  font-size: 0.75em;
   margin: 0;
   text-transform: capitalize; }
-  @media (min-width: 768px) {
+  @media (min-width: 1100px) {
     .card p, .card h3 {
       font-size: 1em; } }
 .card--group {

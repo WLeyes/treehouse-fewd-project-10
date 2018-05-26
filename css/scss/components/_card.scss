@@ -8,10 +8,10 @@
     }
   }
   p, h3{
-    font-size: em(14px);
+    font-size: em(12px);
     margin: 0;
     text-transform: capitalize;
-    @include media-query(medium){
+    @include media-query(large){
       font-size: em(16px);
     }
   }
@@ -43,7 +43,6 @@
   backface-visibility: hidden;
   border-bottom: 2px solid gray;
   @include media-query(medium){
-    // padding: em(20px);
     justify-items: center;
     border: 2px solid gray;
     border-radius: $border-radius--default;
