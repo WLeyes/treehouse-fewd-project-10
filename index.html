@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Awesome Startup Employee Directory</title>
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/moment.js" defer></script>
   <script src="js/app.js" defer></script>
 </head>
+
 <body>
   <div class="modal">
     <div class="modal--contents"></div>
   </div>
   <main class="container">
     <header id="header" class="header">
-        <h1 class="headline">Awesome Startup Employee Directory</h1>
-        <div>
-          <input id="search" title="search" class="search" list="searchList" type="search" placeholder="Filter ...">
-          <datalist id="searchList"></datalist>
-          <label for="search"><i class="fab fa-searchengin"></i></label>
-        </div>
+      <h1 class="headline">Awesome Startup Employee Directory</h1>
+      <div>
+        <input id="search" title="search" class="search" list="searchList" type="search" placeholder="Filter ...">
+        <datalist id="searchList"></datalist>
+        <label for="search">
+          <i class="fab fa-searchengin"></i>
+        </label>
+      </div>
     </header>
     <section class="cards">
       <h2 class="srt">Employee cards</h2>
     </section>
   </main>
 </body>
+
 </html>
